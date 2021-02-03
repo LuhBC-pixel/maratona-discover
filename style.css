@@ -346,3 +346,54 @@ footer {
         color: var(--green);
     }
 }
+
+button#change-theme {
+    position: absolute;
+    width: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: 1350px;
+    background-color: cadetblue;
+}
+
+button > img {
+    width: 100px;
+}
+
+body.theme-dark {
+    background-color: #181818
+}
+
+footer.theme-dark {
+    color: #fff;
+}
+
+.card.theme-dark {
+    background-color: #21262d;
+    color: #f0f6fc;
+}
+
+.modal.theme-dark {
+    background-color: #21262d;
+}
+
+h2.theme-dark {
+    color: #f0f6fc;
+}
+
+.button.cancel.theme-dark {
+    opacity: 1;
+}
+
+small.theme-dark {
+    color: #f0f6fc;
+}
+
+a.button.new.theme-dark {
+    color: #f0f6fc;
+}
+
+a.button.new:hover.theme-dark {
+    color: var(--green);
+}
