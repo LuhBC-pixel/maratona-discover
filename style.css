@@ -306,3 +306,43 @@ footer {
         gap: 2rem;
     }
 }
+
+/* Theme dark ==================== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #181818
+    }
+
+    footer {
+        color: #fff;
+    }
+
+    .card {
+        background-color: #21262d;
+        color: #f0f6fc;
+    }
+
+    .modal {
+        background-color: #21262d;
+    }
+
+    h2 {
+        color: #f0f6fc;
+    }
+
+    .button.cancel {
+        opacity: 1;
+    }
+
+    small {
+        color: #f0f6fc;
+    }
+
+    a.button.new {
+        color: #f0f6fc;
+    }
+
+    a.button.new:hover {
+        color: var(--green);
+    }
+}

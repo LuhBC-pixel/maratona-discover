@@ -115,7 +115,7 @@ const DOM = {
 
 const Utils = {
     formatAmount(value){
-        value = Number(value.replace(/\,\./g, "")) * 100;
+        value = Number(value.replace(/\,?\.?/g, "")) * 100;
         
         return value;
     },
@@ -201,7 +201,7 @@ const Form = {
 
 const App = {
     init() {
-        Transaction.all.forEach(DOM.addTransaction);
+        Transaction.all.forEach(transaction => DOM.addTransaction(transaction));
         
         DOM.updateBalance();
 
