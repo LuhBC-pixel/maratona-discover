@@ -111,6 +111,7 @@ header {
 #logo {
     color: #fff;
     font-weight: 100;
+    animation: animation 5s;
 }
 
 /* Balance ===================== */
@@ -132,6 +133,7 @@ header {
     margin-bottom: 2rem;
 
     color: var(--dark-blue);
+    animation: card 5s;
 }
 
 .card h3 {
@@ -165,6 +167,7 @@ header {
     width: 100%;
     border-spacing: 0 0.5rem;
     color: #969cb3;
+    animation: table 5s;
 }
 
 table thead tr th:first-child, 
@@ -434,4 +437,32 @@ footer {
 
 .theme-dark .description {
     color: #f0f0f0;
+}
+
+/* Animation ===================== */
+@keyframes animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes card {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes table {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
 }
