@@ -10,11 +10,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="change-theme">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">
+              <div id="ball"></div>
+            </label>
+        </div>
         <header>
             <img src="./assets/logo.svg" alt="Logo Dev Finance">
-            <button id="change-theme">
-                <img src="./assets/dark.svg" alt="theme dark">
-            </button>
         </header>
 
         <main class="container">
@@ -132,5 +135,6 @@
         <footer><p>2021 - dev.finance$</p></footer>
 
         <script src="./scripts.js"></script>
+        <script src="./themes.js"></script>
     </body>
 </html>
