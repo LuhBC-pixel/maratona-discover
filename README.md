@@ -8,7 +8,6 @@
 * JavaScript (Linguagem de programação)
 
 Esse site serve para calcular o total com as suas receitas menos as suas despesas. 
-Os armazenamentos em sessão do site não ficam salvas.
 
 ![Foto do site](./imgs/site.png)
 
