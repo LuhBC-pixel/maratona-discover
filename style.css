@@ -312,17 +312,26 @@ footer {
 
 /* Theme dark ==================== */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #181818
+    header, body {
+        background-color: #181818;
     }
 
     footer {
-        color: #fff;
+        color: #f0f6fc;
     }
 
     .card {
         background-color: #21262d;
         color: #f0f6fc;
+    }
+
+    .card.total {
+        background-color: #04D361;
+        color: #f0f6fc;
+    }
+
+    .card.total-expense {
+        background-color: #E92929;
     }
 
     .modal {
@@ -333,12 +342,41 @@ footer {
         color: #f0f6fc;
     }
 
+    #transaction #data-table thead th {
+        background-color: #21262d;
+    }
+
+    #transaction #data-table tbody td {
+        background-color: #21262d;
+    }
+
+    #transaction #data-table td.descritpion {
+        color: #f0f6fc;
+    }
+
     .button.cancel {
         opacity: 1;
     }
 
+    #form h2 {
+        color: #f0f6fc;
+    }
+
+    #form form input {
+        color: #f0f6fc;
+        background-color: #21262d;
+    }
+
+    #form .input-group small {
+        color: #f0f6fc;
+    }
+
     small {
         color: #f0f6fc;
+    }
+
+    .modal-overlay .modal {
+        background-color: #21262d;
     }
 
     a.button.new {
@@ -347,6 +385,10 @@ footer {
 
     a.button.new:hover {
         color: var(--green);
+    }
+
+    .description {
+        color: #f0f0f0;
     }
 }
 
