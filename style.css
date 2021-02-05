@@ -290,10 +290,26 @@ input {
 /* Footer ===================== */
 footer {
     text-align: center;
-    padding: 4rem 0 2rem;
+    padding: 0 0 2rem;
     color: var(--dark-blue);
 
     opacity: 0.6;
+}
+
+#icon {
+    text-align: center;
+    margin: 50px 0 0 0;
+    padding: 4rem 0 1rem;
+}
+
+i {
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+.link-icon {
+    text-decoration: none;
 }
 
 
@@ -483,6 +499,10 @@ footer {
 
 .theme-dark .description {
     color: #f0f0f0;
+}
+
+.theme-dark i {
+    color: Mediumslateblue;
 }
 
 /* Animation ===================== */
