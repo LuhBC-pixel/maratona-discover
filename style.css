@@ -133,7 +133,7 @@ header {
     margin-bottom: 2rem;
 
     color: var(--dark-blue);
-    animation: card 5s;
+    animation: card 3s;
 }
 
 .card h3 {
