@@ -48,4 +48,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ❤ by Rocketseat e Luisa :wave:
+Feito com ❤ by Rocketseat e Luisa :wave: Para acessar o site com as minhas implementações, [clique aqui](https://maratona-discover-silk.vercel.app/)
