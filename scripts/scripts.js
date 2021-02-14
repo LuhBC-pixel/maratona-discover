@@ -43,6 +43,24 @@ const Transaction = {
         App.reload();
     },
 
+    edit(index) {
+        Modal.open();
+
+        const descriptionText = Transaction.all[index].description;
+        const amountText = Transaction.all[index].amount;
+        const dateText = Transaction.all[index].date;
+
+        document.getElementById('description').value = descriptionText;
+        document.getElementById('amount').value = Utils.reformatAmount(amountText);
+        document.getElementById('date').value = Utils.reformatDate(dateText);
+
+        const element = document.getElementById('btn-save');
+
+        element.onclick = function() {
+            Transaction.all.splice(index, 1);
+        }
+    },
+
     incomes() {
         let income = 0;
         Transaction.all.forEach(transaction => {
@@ -91,6 +109,9 @@ const DOM = {
         <td>
             <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
         </td>
+        <td>
+            <img onclick="Transaction.edit(${index})" src="./assets/edit.svg" alt="Editar transação">
+        </td>
         `
 
         return html;
@@ -108,20 +129,38 @@ const DOM = {
             .innerHTML = Utils.formatCurrency(Transaction.total());
     },
 
+    formatGraphic() {
+        return {
+            income: (Transaction.incomes() / 100),
+            expense: (Transaction.expenses() / 100),
+            total: (Transaction.total() / 100)
+        }
+    },
+
     clearTransactions() {
         DOM.transactionsContainer.innerHTML = "";
     }
 };
 
 const Utils = {
-    formatAmount(value){
+    formatAmount(value) {
         value = value * 100;  
+        return Math.round(value);
+    },
+
+    reformatAmount(value) {
+        value = Number(value) / 100;
         return Math.round(value);
     },
 
     formatDate(date) {
         const splittedDate = date.split("-");
         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`;
+    },
+
+    reformatDate(date) {
+        const splittedDate = date.split("/");
+        return `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`;
     },
 
     formatCurrency(value) {
@@ -200,7 +239,7 @@ const Form = {
 
 const App = {
     init() {
-        Transaction.all.forEach(transaction => DOM.addTransaction(transaction));
+        Transaction.all.forEach((transaction, index) => DOM.addTransaction(transaction, index));
         
         DOM.updateBalance();
 

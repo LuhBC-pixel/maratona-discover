@@ -75,6 +75,7 @@
                             <th>Valor</th>
                             <th>Data</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,6 +98,7 @@
                                 id="description" 
                                 name="description"
                                 placeholder="Descrição"
+                                value=""
                             />
                         </div>
 
@@ -130,12 +132,14 @@
                             onclick="Modal.close()"
                             href="#" 
                             class="button cancel">Cancelar</a>
-                            <button>Salvar</button>
+                            <button id="btn-save">Salvar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+        <canvas id="myChart" width="400" height="100"></canvas>
 
         <div id="icon">
             <a 
@@ -146,9 +150,12 @@
             </a>
         </div>
 
-        <footer><p>2021 - dev.finance$</p></footer>
+
+        <footer><p>2021 - dev.finance$ feito de ❤️ por Rocketseat e Luisa</p></footer>
 
         <script src="./scripts/scripts.js"></script>
         <script src="./scripts/themes.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+        <script src="scripts/graphics.js"></script>
     </body>
 </html>
