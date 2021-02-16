@@ -129,14 +129,6 @@ const DOM = {
             .innerHTML = Utils.formatCurrency(Transaction.total());
     },
 
-    formatGraphic() {
-        return {
-            income: (Transaction.incomes() / 100),
-            expense: (Transaction.expenses() / 100),
-            total: (Transaction.total() / 100)
-        }
-    },
-
     clearTransactions() {
         DOM.transactionsContainer.innerHTML = "";
     }
@@ -237,13 +229,61 @@ const Form = {
     }
 };
 
+const Graph = {
+    draw() {
+        const { income, expense, total } = Graph.formatGraphic();
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Entrada', 'Saida', 'Total'],
+                datasets: [{
+                    label: 'Cálculo de dinheiro',
+                    data: [Math.round(income), Math.round(expense), Math.round(total)],
+                    backgroundColor: [
+                        '#49AA26',
+                        '#E83F5B',
+                        '#15AABF'
+                    ],
+                    borderWidth: 6,
+                }],
+            }
+        });
+
+        return chart;
+    },
+
+    formatGraphic() {
+        let incomes = 0;
+        let expenses = 0;
+
+        Transaction.all.forEach(element => {
+            if (element.amount < 0) {
+                expenses += element.amount;
+            } else {
+                incomes += element.amount;
+            }
+        })
+
+        let total = incomes + expenses;
+
+        return {
+            income: incomes / 100,
+            expense: expenses / 100,
+            total: total / 100,
+        }
+    },
+}
+
 const App = {
     init() {
         Transaction.all.forEach((transaction, index) => DOM.addTransaction(transaction, index));
         
         DOM.updateBalance();
-
         Storage.set(Transaction.all);
+        Graph.draw();
     },
     reload() {
         DOM.clearTransactions();
