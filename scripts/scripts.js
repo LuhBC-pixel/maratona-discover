@@ -231,8 +231,6 @@ const Form = {
 
 const Graph = {
     draw() {
-        const { income, expense, total } = Graph.formatGraphic();
-
         const ctx = document.getElementById('myChart').getContext('2d');
 
         const chart = new Chart(ctx, {
@@ -241,7 +239,7 @@ const Graph = {
                 labels: ['Entrada', 'Saida', 'Total'],
                 datasets: [{
                     label: 'Cálculo de dinheiro',
-                    data: [Math.round(income), Math.round(expense), Math.round(total)],
+                    data: Graph.formatGraphic(),
                     backgroundColor: [
                         '#49AA26',
                         '#E83F5B',
@@ -259,7 +257,7 @@ const Graph = {
         let incomes = 0;
         let expenses = 0;
 
-        Transaction.all.forEach(element => {
+        Storage.get().forEach(element => {
             if (element.amount < 0) {
                 expenses += element.amount;
             } else {
@@ -269,11 +267,7 @@ const Graph = {
 
         let total = incomes + expenses;
 
-        return {
-            income: incomes / 100,
-            expense: expenses / 100,
-            total: total / 100,
-        }
+        return [(incomes / 100), (expenses / 100), (total / 100)]
     },
 }
 
