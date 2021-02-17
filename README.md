@@ -37,12 +37,12 @@ O dev.finances é uma aplicação de controle financeiro, onde é possível cada
 ## ✨ Implementações
 
 Foi adicionado ao site:
-*tema dark
-*favicon
-*ícones
-*animações
-*uma forma de editar as transações
-*gráfico para uma melhor visualização
+* tema dark
+* favicon
+* ícones
+* animações
+* uma forma de editar as transações
+* gráfico para uma melhor visualização
 
 ## 🔖 Layout
 
