@@ -133,7 +133,6 @@ header {
     margin-bottom: 2rem;
 
     color: var(--dark-blue);
-    animation: card 3s;
 }
 
 .card h3 {
@@ -167,7 +166,7 @@ header {
     width: 100%;
     border-spacing: 0 0.5rem;
     color: #969cb3;
-    animation: table 5s;
+    animation: table 2s;
 }
 
 table thead tr th:first-child, 
@@ -286,6 +285,10 @@ input {
     width: 48%;
 }
 
+/* Graphic */
+canvas {
+    margin-top: 30px;
+}
 
 /* Footer ===================== */
 footer {
@@ -431,15 +434,6 @@ i {
     }
     100% {
         opacity: 1;
-    }
-}
-
-@keyframes card {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
     }
 }
 
