@@ -230,30 +230,26 @@ const Form = {
 };
 
 const Graph = {
-    draw() {
-        const ctx = document.getElementById('myChart').getContext('2d');
+    hook: document.getElementById('myChart').getContext('2d'),
 
-        const chart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Entrada', 'Saida', 'Total'],
-                datasets: [{
-                    label: 'Cálculo de dinheiro',
-                    data: Graph.formatGraphic(),
-                    backgroundColor: [
-                        '#49AA26',
-                        '#E83F5B',
-                        '#15AABF'
-                    ],
-                    borderWidth: 6,
-                }],
-            }
-        });
-
-        return chart;
+    constructor: {
+        type: 'doughnut',
+        data: {
+            labels: ['Entrada', 'Saida', 'Total'],
+            datasets: [{
+                label: 'Balanço',
+                data: [],
+                backgroundColor: [
+                    '#49AA26',
+                    '#E83F5B',
+                    '#15AABF'
+                ],
+                borderWidth: 6,
+            }],
+        }
     },
 
-    formatGraphic() {
+    getData() {
         let incomes = 0;
         let expenses = 0;
 
@@ -267,19 +263,32 @@ const Graph = {
 
         let total = incomes + expenses;
 
-        return [(incomes / 100), (expenses / 100), (total / 100)]
+        const data = [(incomes / 100), (expenses / 100), (total / 100)];
+        App.chart.data.datasets[0].data = data;
     },
+
+    updateData() {
+        Graph.getData();
+        App.chart.update();
+    }
 }
 
 const App = {
+    chart: null,
+    isFirstInitialization: true,
+
     init() {
-        Transaction.all.forEach((transaction, index) => DOM.addTransaction(transaction, index));
-        
+        Transaction.all.forEach((transaction, index) => DOM.addTransaction(transaction, index));    
         DOM.updateBalance();
         Storage.set(Transaction.all);
-        Graph.draw();
+
+        if (App.isFirstInitialization) {
+            App.chart = new Chart(Graph.hook, Graph.constructor);
+        }
+        Graph.updateData();
     },
     reload() {
+        App.isFirstInitialization = false;
         DOM.clearTransactions();
         App.init();
     },
